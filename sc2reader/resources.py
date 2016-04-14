@@ -363,6 +363,8 @@ class Replay(Resource):
 
             self.game_length = self.length
             self.real_length = utils.Length(seconds=int(self.length.seconds/GAME_SPEED_FACTOR[self.speed]))
+            if (self.expansion == 'LotV'):
+                self.game_length = self.real_length
             self.start_time = datetime.utcfromtimestamp(self.unix_timestamp-self.real_length.seconds)
             self.date = self.end_time  # backwards compatibility
 
