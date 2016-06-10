@@ -6,7 +6,8 @@ general:
       - jonomon
       - master
       - old_master
-test:
-    override:
-        - python -m unittest discover test_replays
-        - python -m unittest discover test_s2gs
+
+dependencies:
+    post:
+        - pip install tox tox-pyenv
+        - pyenv local  2.7.11 3.5.1
